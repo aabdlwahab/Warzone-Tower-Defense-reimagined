@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multiplayer Tower Defense</title>
+  </head>
+  <body>
+    <main id="app">
+      <section class="hud">
+        <div class="brand">
+          <span class="brand-mark"></span>
+          <strong>Frontline TD</strong>
+        </div>
+        <div class="room">
+          <input id="name" maxlength="24" placeholder="Name" value="Commander" />
+          <input id="room" maxlength="12" placeholder="Room code" />
+          <button id="create">Create Room</button>
+          <button id="join">Join</button>
+          <button id="ready">Ready</button>
+        </div>
+        <div class="build">
+          <button class="tower rifle selected" data-tower="rifle">
+            <span></span>
+            Rifle
+          </button>
+          <button class="tower cannon" data-tower="cannon">
+            <span></span>
+            Cannon
+          </button>
+          <button class="tower frost" data-tower="frost">
+            <span></span>
+            Frost
+          </button>
+        </div>
+        <output id="status">Offline</output>
+      </section>
+      <div id="game"></div>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

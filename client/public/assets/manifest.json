@@ -1,0 +1,2097 @@
+{
+  "meta": {
+    "project": "warzone",
+    "tile": 48,
+    "generated": "2026-06-05",
+    "note": "Flat-vector WWII top-down asset set. Team-tinted defenses/units carry _p0(neutral)/_p1..p4 suffixes."
+  },
+  "teams": [
+    {
+      "id": "p0",
+      "name": "Neutral",
+      "main": "#86922f",
+      "dk": "#5f6b22",
+      "lt": "#a6b347"
+    },
+    {
+      "id": "p1",
+      "name": "Blue",
+      "main": "#2e74d6",
+      "dk": "#1f56a6",
+      "lt": "#5b97ee"
+    },
+    {
+      "id": "p2",
+      "name": "Red",
+      "main": "#e8413a",
+      "dk": "#b82d28",
+      "lt": "#f4736d"
+    },
+    {
+      "id": "p3",
+      "name": "Green",
+      "main": "#25c065",
+      "dk": "#199048",
+      "lt": "#57da8c"
+    },
+    {
+      "id": "p4",
+      "name": "Amber",
+      "main": "#f5b21e",
+      "dk": "#c98a0c",
+      "lt": "#ffce5c"
+    }
+  ],
+  "statics": [
+    {
+      "key": "proj_bullet",
+      "group": "fx",
+      "path": "assets/fx/proj_bullet.png",
+      "w": 14,
+      "h": 14
+    },
+    {
+      "key": "proj_tracer",
+      "group": "fx",
+      "path": "assets/fx/proj_tracer.png",
+      "w": 20,
+      "h": 10
+    },
+    {
+      "key": "proj_shell",
+      "group": "fx",
+      "path": "assets/fx/proj_shell.png",
+      "w": 18,
+      "h": 18
+    },
+    {
+      "key": "proj_mortar",
+      "group": "fx",
+      "path": "assets/fx/proj_mortar.png",
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "proj_rocket",
+      "group": "fx",
+      "path": "assets/fx/proj_rocket.png",
+      "w": 26,
+      "h": 14
+    },
+    {
+      "key": "proj_flame",
+      "group": "fx",
+      "path": "assets/fx/proj_flame.png",
+      "w": 16,
+      "h": 16
+    },
+    {
+      "key": "tile_grass",
+      "group": "tiles",
+      "path": "assets/tiles/tile_grass.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "tile_grass2",
+      "group": "tiles",
+      "path": "assets/tiles/tile_grass2.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "tile_dirt",
+      "group": "tiles",
+      "path": "assets/tiles/tile_dirt.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "tile_sand",
+      "group": "tiles",
+      "path": "assets/tiles/tile_sand.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "tile_mud",
+      "group": "tiles",
+      "path": "assets/tiles/tile_mud.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "tile_water",
+      "group": "tiles",
+      "path": "assets/tiles/tile_water.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "tile_road",
+      "group": "tiles",
+      "path": "assets/tiles/tile_road.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "tile_build",
+      "group": "tiles",
+      "path": "assets/tiles/tile_build.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "tile_blocked",
+      "group": "tiles",
+      "path": "assets/tiles/tile_blocked.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "path_h",
+      "group": "tiles",
+      "path": "assets/tiles/path_h.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "path_v",
+      "group": "tiles",
+      "path": "assets/tiles/path_v.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "path_ne",
+      "group": "tiles",
+      "path": "assets/tiles/path_ne.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "path_nw",
+      "group": "tiles",
+      "path": "assets/tiles/path_nw.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "path_se",
+      "group": "tiles",
+      "path": "assets/tiles/path_se.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "path_sw",
+      "group": "tiles",
+      "path": "assets/tiles/path_sw.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "path_t_up",
+      "group": "tiles",
+      "path": "assets/tiles/path_t_up.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "path_t_down",
+      "group": "tiles",
+      "path": "assets/tiles/path_t_down.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "path_t_left",
+      "group": "tiles",
+      "path": "assets/tiles/path_t_left.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "path_t_right",
+      "group": "tiles",
+      "path": "assets/tiles/path_t_right.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "path_cross",
+      "group": "tiles",
+      "path": "assets/tiles/path_cross.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "path_end_n",
+      "group": "tiles",
+      "path": "assets/tiles/path_end_n.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "path_end_s",
+      "group": "tiles",
+      "path": "assets/tiles/path_end_s.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "path_end_e",
+      "group": "tiles",
+      "path": "assets/tiles/path_end_e.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "path_end_w",
+      "group": "tiles",
+      "path": "assets/tiles/path_end_w.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "deco_tree",
+      "group": "deco",
+      "path": "assets/deco/deco_tree.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "deco_bush",
+      "group": "deco",
+      "path": "assets/deco/deco_bush.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "deco_rock",
+      "group": "deco",
+      "path": "assets/deco/deco_rock.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "deco_sandbag",
+      "group": "deco",
+      "path": "assets/deco/deco_sandbag.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "deco_barbedwire",
+      "group": "deco",
+      "path": "assets/deco/deco_barbedwire.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "deco_hedgehog",
+      "group": "deco",
+      "path": "assets/deco/deco_hedgehog.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "deco_barrel",
+      "group": "deco",
+      "path": "assets/deco/deco_barrel.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "deco_crate",
+      "group": "deco",
+      "path": "assets/deco/deco_crate.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "deco_crater",
+      "group": "deco",
+      "path": "assets/deco/deco_crater.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "ui_panel",
+      "group": "ui",
+      "path": "assets/ui/ui_panel.png",
+      "w": 64,
+      "h": 64
+    },
+    {
+      "key": "ui_card",
+      "group": "ui",
+      "path": "assets/ui/ui_card.png",
+      "w": 80,
+      "h": 100
+    },
+    {
+      "key": "ui_button",
+      "group": "ui",
+      "path": "assets/ui/ui_button.png",
+      "w": 112,
+      "h": 44
+    },
+    {
+      "key": "ui_button_green",
+      "group": "ui",
+      "path": "assets/ui/ui_button_green.png",
+      "w": 112,
+      "h": 44
+    },
+    {
+      "key": "ui_button_red",
+      "group": "ui",
+      "path": "assets/ui/ui_button_red.png",
+      "w": 112,
+      "h": 44
+    },
+    {
+      "key": "ui_button_hover",
+      "group": "ui",
+      "path": "assets/ui/ui_button_hover.png",
+      "w": 112,
+      "h": 44
+    },
+    {
+      "key": "ui_button_green_hover",
+      "group": "ui",
+      "path": "assets/ui/ui_button_green_hover.png",
+      "w": 112,
+      "h": 44
+    },
+    {
+      "key": "ui_button_red_hover",
+      "group": "ui",
+      "path": "assets/ui/ui_button_red_hover.png",
+      "w": 112,
+      "h": 44
+    },
+    {
+      "key": "ui_button_press",
+      "group": "ui",
+      "path": "assets/ui/ui_button_press.png",
+      "w": 112,
+      "h": 44
+    },
+    {
+      "key": "ui_button_green_press",
+      "group": "ui",
+      "path": "assets/ui/ui_button_green_press.png",
+      "w": 112,
+      "h": 44
+    },
+    {
+      "key": "ui_button_red_press",
+      "group": "ui",
+      "path": "assets/ui/ui_button_red_press.png",
+      "w": 112,
+      "h": 44
+    },
+    {
+      "key": "ui_bar_frame",
+      "group": "ui",
+      "path": "assets/ui/ui_bar_frame.png",
+      "w": 72,
+      "h": 14
+    },
+    {
+      "key": "ui_bar_green",
+      "group": "ui",
+      "path": "assets/ui/ui_bar_green.png",
+      "w": 64,
+      "h": 8
+    },
+    {
+      "key": "ui_bar_yellow",
+      "group": "ui",
+      "path": "assets/ui/ui_bar_yellow.png",
+      "w": 64,
+      "h": 8
+    },
+    {
+      "key": "ui_bar_red",
+      "group": "ui",
+      "path": "assets/ui/ui_bar_red.png",
+      "w": 64,
+      "h": 8
+    },
+    {
+      "key": "ui_range",
+      "group": "ui",
+      "path": "assets/ui/ui_range.png",
+      "w": 200,
+      "h": 200
+    },
+    {
+      "key": "ui_place_ok",
+      "group": "ui",
+      "path": "assets/ui/ui_place_ok.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "ui_place_no",
+      "group": "ui",
+      "path": "assets/ui/ui_place_no.png",
+      "w": 48,
+      "h": 48
+    },
+    {
+      "key": "ui_coin",
+      "group": "ui",
+      "path": "assets/ui/ui_coin.png",
+      "w": 32,
+      "h": 32
+    },
+    {
+      "key": "ui_wave_banner",
+      "group": "ui",
+      "path": "assets/ui/ui_wave_banner.png",
+      "w": 200,
+      "h": 48
+    },
+    {
+      "key": "icon_upgrade",
+      "group": "icons",
+      "path": "assets/icons/icon_upgrade.png",
+      "w": 32,
+      "h": 32
+    },
+    {
+      "key": "icon_sell",
+      "group": "icons",
+      "path": "assets/icons/icon_sell.png",
+      "w": 32,
+      "h": 32
+    },
+    {
+      "key": "icon_pause",
+      "group": "icons",
+      "path": "assets/icons/icon_pause.png",
+      "w": 32,
+      "h": 32
+    },
+    {
+      "key": "icon_play",
+      "group": "icons",
+      "path": "assets/icons/icon_play.png",
+      "w": 32,
+      "h": 32
+    },
+    {
+      "key": "icon_fast",
+      "group": "icons",
+      "path": "assets/icons/icon_fast.png",
+      "w": 32,
+      "h": 32
+    },
+    {
+      "key": "icon_target",
+      "group": "icons",
+      "path": "assets/icons/icon_target.png",
+      "w": 32,
+      "h": 32
+    },
+    {
+      "key": "icon_damage",
+      "group": "icons",
+      "path": "assets/icons/icon_damage.png",
+      "w": 32,
+      "h": 32
+    },
+    {
+      "key": "icon_settings",
+      "group": "icons",
+      "path": "assets/icons/icon_settings.png",
+      "w": 32,
+      "h": 32
+    },
+    {
+      "key": "icon_star",
+      "group": "icons",
+      "path": "assets/icons/icon_star.png",
+      "w": 32,
+      "h": 32
+    },
+    {
+      "key": "icon_heart",
+      "group": "icons",
+      "path": "assets/icons/icon_heart.png",
+      "w": 32,
+      "h": 32
+    },
+    {
+      "key": "icon_skull",
+      "group": "icons",
+      "path": "assets/icons/icon_skull.png",
+      "w": 32,
+      "h": 32
+    },
+    {
+      "key": "icon_ammo",
+      "group": "icons",
+      "path": "assets/icons/icon_ammo.png",
+      "w": 32,
+      "h": 32
+    },
+    {
+      "key": "icon_shield",
+      "group": "icons",
+      "path": "assets/icons/icon_shield.png",
+      "w": 32,
+      "h": 32
+    },
+    {
+      "key": "icon_fire",
+      "group": "icons",
+      "path": "assets/icons/icon_fire.png",
+      "w": 32,
+      "h": 32
+    },
+    {
+      "key": "icon_lock",
+      "group": "icons",
+      "path": "assets/icons/icon_lock.png",
+      "w": 32,
+      "h": 32
+    },
+    {
+      "key": "icon_plus",
+      "group": "icons",
+      "path": "assets/icons/icon_plus.png",
+      "w": 32,
+      "h": 32
+    },
+    {
+      "key": "icon_close",
+      "group": "icons",
+      "path": "assets/icons/icon_close.png",
+      "w": 32,
+      "h": 32
+    },
+    {
+      "key": "icon_menu",
+      "group": "icons",
+      "path": "assets/icons/icon_menu.png",
+      "w": 32,
+      "h": 32
+    },
+    {
+      "key": "icon_sound_on",
+      "group": "icons",
+      "path": "assets/icons/icon_sound_on.png",
+      "w": 32,
+      "h": 32
+    },
+    {
+      "key": "icon_sound_off",
+      "group": "icons",
+      "path": "assets/icons/icon_sound_off.png",
+      "w": 32,
+      "h": 32
+    },
+    {
+      "key": "icon_speed",
+      "group": "icons",
+      "path": "assets/icons/icon_speed.png",
+      "w": 32,
+      "h": 32
+    },
+    {
+      "key": "icon_flag",
+      "group": "icons",
+      "path": "assets/icons/icon_flag.png",
+      "w": 32,
+      "h": 32
+    }
+  ],
+  "teamStatics": [
+    {
+      "key": "tower_rifle_base",
+      "group": "towers",
+      "w": 48,
+      "h": 48,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "tower_rifle_base_p0",
+          "path": "assets/towers/tower_rifle_base_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "tower_rifle_base_p1",
+          "path": "assets/towers/tower_rifle_base_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "tower_rifle_base_p2",
+          "path": "assets/towers/tower_rifle_base_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "tower_rifle_base_p3",
+          "path": "assets/towers/tower_rifle_base_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "tower_rifle_base_p4",
+          "path": "assets/towers/tower_rifle_base_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "tower_rifle_gun",
+      "group": "towers",
+      "w": 48,
+      "h": 48,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "tower_rifle_gun_p0",
+          "path": "assets/towers/tower_rifle_gun_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "tower_rifle_gun_p1",
+          "path": "assets/towers/tower_rifle_gun_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "tower_rifle_gun_p2",
+          "path": "assets/towers/tower_rifle_gun_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "tower_rifle_gun_p3",
+          "path": "assets/towers/tower_rifle_gun_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "tower_rifle_gun_p4",
+          "path": "assets/towers/tower_rifle_gun_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "tower_mg_base",
+      "group": "towers",
+      "w": 48,
+      "h": 48,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "tower_mg_base_p0",
+          "path": "assets/towers/tower_mg_base_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "tower_mg_base_p1",
+          "path": "assets/towers/tower_mg_base_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "tower_mg_base_p2",
+          "path": "assets/towers/tower_mg_base_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "tower_mg_base_p3",
+          "path": "assets/towers/tower_mg_base_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "tower_mg_base_p4",
+          "path": "assets/towers/tower_mg_base_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "tower_mg_gun",
+      "group": "towers",
+      "w": 48,
+      "h": 48,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "tower_mg_gun_p0",
+          "path": "assets/towers/tower_mg_gun_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "tower_mg_gun_p1",
+          "path": "assets/towers/tower_mg_gun_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "tower_mg_gun_p2",
+          "path": "assets/towers/tower_mg_gun_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "tower_mg_gun_p3",
+          "path": "assets/towers/tower_mg_gun_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "tower_mg_gun_p4",
+          "path": "assets/towers/tower_mg_gun_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "tower_mortar_base",
+      "group": "towers",
+      "w": 48,
+      "h": 48,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "tower_mortar_base_p0",
+          "path": "assets/towers/tower_mortar_base_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "tower_mortar_base_p1",
+          "path": "assets/towers/tower_mortar_base_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "tower_mortar_base_p2",
+          "path": "assets/towers/tower_mortar_base_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "tower_mortar_base_p3",
+          "path": "assets/towers/tower_mortar_base_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "tower_mortar_base_p4",
+          "path": "assets/towers/tower_mortar_base_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "tower_mortar_gun",
+      "group": "towers",
+      "w": 48,
+      "h": 48,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "tower_mortar_gun_p0",
+          "path": "assets/towers/tower_mortar_gun_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "tower_mortar_gun_p1",
+          "path": "assets/towers/tower_mortar_gun_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "tower_mortar_gun_p2",
+          "path": "assets/towers/tower_mortar_gun_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "tower_mortar_gun_p3",
+          "path": "assets/towers/tower_mortar_gun_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "tower_mortar_gun_p4",
+          "path": "assets/towers/tower_mortar_gun_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "tower_cannon_base",
+      "group": "towers",
+      "w": 48,
+      "h": 48,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "tower_cannon_base_p0",
+          "path": "assets/towers/tower_cannon_base_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "tower_cannon_base_p1",
+          "path": "assets/towers/tower_cannon_base_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "tower_cannon_base_p2",
+          "path": "assets/towers/tower_cannon_base_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "tower_cannon_base_p3",
+          "path": "assets/towers/tower_cannon_base_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "tower_cannon_base_p4",
+          "path": "assets/towers/tower_cannon_base_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "tower_cannon_gun",
+      "group": "towers",
+      "w": 48,
+      "h": 48,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "tower_cannon_gun_p0",
+          "path": "assets/towers/tower_cannon_gun_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "tower_cannon_gun_p1",
+          "path": "assets/towers/tower_cannon_gun_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "tower_cannon_gun_p2",
+          "path": "assets/towers/tower_cannon_gun_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "tower_cannon_gun_p3",
+          "path": "assets/towers/tower_cannon_gun_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "tower_cannon_gun_p4",
+          "path": "assets/towers/tower_cannon_gun_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "tower_at_base",
+      "group": "towers",
+      "w": 48,
+      "h": 48,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "tower_at_base_p0",
+          "path": "assets/towers/tower_at_base_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "tower_at_base_p1",
+          "path": "assets/towers/tower_at_base_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "tower_at_base_p2",
+          "path": "assets/towers/tower_at_base_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "tower_at_base_p3",
+          "path": "assets/towers/tower_at_base_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "tower_at_base_p4",
+          "path": "assets/towers/tower_at_base_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "tower_at_gun",
+      "group": "towers",
+      "w": 48,
+      "h": 48,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "tower_at_gun_p0",
+          "path": "assets/towers/tower_at_gun_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "tower_at_gun_p1",
+          "path": "assets/towers/tower_at_gun_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "tower_at_gun_p2",
+          "path": "assets/towers/tower_at_gun_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "tower_at_gun_p3",
+          "path": "assets/towers/tower_at_gun_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "tower_at_gun_p4",
+          "path": "assets/towers/tower_at_gun_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "tower_flak_base",
+      "group": "towers",
+      "w": 48,
+      "h": 48,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "tower_flak_base_p0",
+          "path": "assets/towers/tower_flak_base_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "tower_flak_base_p1",
+          "path": "assets/towers/tower_flak_base_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "tower_flak_base_p2",
+          "path": "assets/towers/tower_flak_base_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "tower_flak_base_p3",
+          "path": "assets/towers/tower_flak_base_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "tower_flak_base_p4",
+          "path": "assets/towers/tower_flak_base_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "tower_flak_gun",
+      "group": "towers",
+      "w": 48,
+      "h": 48,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "tower_flak_gun_p0",
+          "path": "assets/towers/tower_flak_gun_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "tower_flak_gun_p1",
+          "path": "assets/towers/tower_flak_gun_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "tower_flak_gun_p2",
+          "path": "assets/towers/tower_flak_gun_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "tower_flak_gun_p3",
+          "path": "assets/towers/tower_flak_gun_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "tower_flak_gun_p4",
+          "path": "assets/towers/tower_flak_gun_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "tower_howitzer_base",
+      "group": "towers",
+      "w": 48,
+      "h": 48,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "tower_howitzer_base_p0",
+          "path": "assets/towers/tower_howitzer_base_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "tower_howitzer_base_p1",
+          "path": "assets/towers/tower_howitzer_base_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "tower_howitzer_base_p2",
+          "path": "assets/towers/tower_howitzer_base_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "tower_howitzer_base_p3",
+          "path": "assets/towers/tower_howitzer_base_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "tower_howitzer_base_p4",
+          "path": "assets/towers/tower_howitzer_base_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "tower_howitzer_gun",
+      "group": "towers",
+      "w": 48,
+      "h": 48,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "tower_howitzer_gun_p0",
+          "path": "assets/towers/tower_howitzer_gun_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "tower_howitzer_gun_p1",
+          "path": "assets/towers/tower_howitzer_gun_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "tower_howitzer_gun_p2",
+          "path": "assets/towers/tower_howitzer_gun_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "tower_howitzer_gun_p3",
+          "path": "assets/towers/tower_howitzer_gun_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "tower_howitzer_gun_p4",
+          "path": "assets/towers/tower_howitzer_gun_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "tower_sniper_base",
+      "group": "towers",
+      "w": 48,
+      "h": 48,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "tower_sniper_base_p0",
+          "path": "assets/towers/tower_sniper_base_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "tower_sniper_base_p1",
+          "path": "assets/towers/tower_sniper_base_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "tower_sniper_base_p2",
+          "path": "assets/towers/tower_sniper_base_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "tower_sniper_base_p3",
+          "path": "assets/towers/tower_sniper_base_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "tower_sniper_base_p4",
+          "path": "assets/towers/tower_sniper_base_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "tower_sniper_gun",
+      "group": "towers",
+      "w": 48,
+      "h": 48,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "tower_sniper_gun_p0",
+          "path": "assets/towers/tower_sniper_gun_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "tower_sniper_gun_p1",
+          "path": "assets/towers/tower_sniper_gun_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "tower_sniper_gun_p2",
+          "path": "assets/towers/tower_sniper_gun_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "tower_sniper_gun_p3",
+          "path": "assets/towers/tower_sniper_gun_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "tower_sniper_gun_p4",
+          "path": "assets/towers/tower_sniper_gun_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "tower_flame_base",
+      "group": "towers",
+      "w": 48,
+      "h": 48,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "tower_flame_base_p0",
+          "path": "assets/towers/tower_flame_base_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "tower_flame_base_p1",
+          "path": "assets/towers/tower_flame_base_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "tower_flame_base_p2",
+          "path": "assets/towers/tower_flame_base_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "tower_flame_base_p3",
+          "path": "assets/towers/tower_flame_base_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "tower_flame_base_p4",
+          "path": "assets/towers/tower_flame_base_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "tower_flame_gun",
+      "group": "towers",
+      "w": 48,
+      "h": 48,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "tower_flame_gun_p0",
+          "path": "assets/towers/tower_flame_gun_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "tower_flame_gun_p1",
+          "path": "assets/towers/tower_flame_gun_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "tower_flame_gun_p2",
+          "path": "assets/towers/tower_flame_gun_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "tower_flame_gun_p3",
+          "path": "assets/towers/tower_flame_gun_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "tower_flame_gun_p4",
+          "path": "assets/towers/tower_flame_gun_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "tower_rocket_base",
+      "group": "towers",
+      "w": 48,
+      "h": 48,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "tower_rocket_base_p0",
+          "path": "assets/towers/tower_rocket_base_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "tower_rocket_base_p1",
+          "path": "assets/towers/tower_rocket_base_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "tower_rocket_base_p2",
+          "path": "assets/towers/tower_rocket_base_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "tower_rocket_base_p3",
+          "path": "assets/towers/tower_rocket_base_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "tower_rocket_base_p4",
+          "path": "assets/towers/tower_rocket_base_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "tower_rocket_gun",
+      "group": "towers",
+      "w": 48,
+      "h": 48,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "tower_rocket_gun_p0",
+          "path": "assets/towers/tower_rocket_gun_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "tower_rocket_gun_p1",
+          "path": "assets/towers/tower_rocket_gun_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "tower_rocket_gun_p2",
+          "path": "assets/towers/tower_rocket_gun_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "tower_rocket_gun_p3",
+          "path": "assets/towers/tower_rocket_gun_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "tower_rocket_gun_p4",
+          "path": "assets/towers/tower_rocket_gun_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "tower_bazooka_base",
+      "group": "towers",
+      "w": 48,
+      "h": 48,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "tower_bazooka_base_p0",
+          "path": "assets/towers/tower_bazooka_base_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "tower_bazooka_base_p1",
+          "path": "assets/towers/tower_bazooka_base_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "tower_bazooka_base_p2",
+          "path": "assets/towers/tower_bazooka_base_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "tower_bazooka_base_p3",
+          "path": "assets/towers/tower_bazooka_base_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "tower_bazooka_base_p4",
+          "path": "assets/towers/tower_bazooka_base_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "tower_bazooka_gun",
+      "group": "towers",
+      "w": 48,
+      "h": 48,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "tower_bazooka_gun_p0",
+          "path": "assets/towers/tower_bazooka_gun_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "tower_bazooka_gun_p1",
+          "path": "assets/towers/tower_bazooka_gun_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "tower_bazooka_gun_p2",
+          "path": "assets/towers/tower_bazooka_gun_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "tower_bazooka_gun_p3",
+          "path": "assets/towers/tower_bazooka_gun_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "tower_bazooka_gun_p4",
+          "path": "assets/towers/tower_bazooka_gun_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "tower_command_base",
+      "group": "towers",
+      "w": 48,
+      "h": 48,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "tower_command_base_p0",
+          "path": "assets/towers/tower_command_base_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "tower_command_base_p1",
+          "path": "assets/towers/tower_command_base_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "tower_command_base_p2",
+          "path": "assets/towers/tower_command_base_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "tower_command_base_p3",
+          "path": "assets/towers/tower_command_base_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "tower_command_base_p4",
+          "path": "assets/towers/tower_command_base_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "tower_command_gun",
+      "group": "towers",
+      "w": 48,
+      "h": 48,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "tower_command_gun_p0",
+          "path": "assets/towers/tower_command_gun_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "tower_command_gun_p1",
+          "path": "assets/towers/tower_command_gun_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "tower_command_gun_p2",
+          "path": "assets/towers/tower_command_gun_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "tower_command_gun_p3",
+          "path": "assets/towers/tower_command_gun_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "tower_command_gun_p4",
+          "path": "assets/towers/tower_command_gun_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "base_hq",
+      "group": "bases",
+      "w": 96,
+      "h": 96,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "base_hq_p0",
+          "path": "assets/bases/base_hq_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "base_hq_p1",
+          "path": "assets/bases/base_hq_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "base_hq_p2",
+          "path": "assets/bases/base_hq_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "base_hq_p3",
+          "path": "assets/bases/base_hq_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "base_hq_p4",
+          "path": "assets/bases/base_hq_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "base_hq_damaged",
+      "group": "bases",
+      "w": 96,
+      "h": 96,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "base_hq_damaged_p0",
+          "path": "assets/bases/base_hq_damaged_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "base_hq_damaged_p1",
+          "path": "assets/bases/base_hq_damaged_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "base_hq_damaged_p2",
+          "path": "assets/bases/base_hq_damaged_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "base_hq_damaged_p3",
+          "path": "assets/bases/base_hq_damaged_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "base_hq_damaged_p4",
+          "path": "assets/bases/base_hq_damaged_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "base_flag",
+      "group": "bases",
+      "w": 32,
+      "h": 32,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "base_flag_p0",
+          "path": "assets/bases/base_flag_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "base_flag_p1",
+          "path": "assets/bases/base_flag_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "base_flag_p2",
+          "path": "assets/bases/base_flag_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "base_flag_p3",
+          "path": "assets/bases/base_flag_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "base_flag_p4",
+          "path": "assets/bases/base_flag_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "unit_lighttank",
+      "group": "units",
+      "w": 48,
+      "h": 48,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "unit_lighttank_p0",
+          "path": "assets/units/unit_lighttank_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "unit_lighttank_p1",
+          "path": "assets/units/unit_lighttank_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "unit_lighttank_p2",
+          "path": "assets/units/unit_lighttank_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "unit_lighttank_p3",
+          "path": "assets/units/unit_lighttank_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "unit_lighttank_p4",
+          "path": "assets/units/unit_lighttank_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "unit_mediumtank",
+      "group": "units",
+      "w": 56,
+      "h": 56,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "unit_mediumtank_p0",
+          "path": "assets/units/unit_mediumtank_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "unit_mediumtank_p1",
+          "path": "assets/units/unit_mediumtank_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "unit_mediumtank_p2",
+          "path": "assets/units/unit_mediumtank_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "unit_mediumtank_p3",
+          "path": "assets/units/unit_mediumtank_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "unit_mediumtank_p4",
+          "path": "assets/units/unit_mediumtank_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "unit_heavytank",
+      "group": "units",
+      "w": 64,
+      "h": 64,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "unit_heavytank_p0",
+          "path": "assets/units/unit_heavytank_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "unit_heavytank_p1",
+          "path": "assets/units/unit_heavytank_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "unit_heavytank_p2",
+          "path": "assets/units/unit_heavytank_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "unit_heavytank_p3",
+          "path": "assets/units/unit_heavytank_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "unit_heavytank_p4",
+          "path": "assets/units/unit_heavytank_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "unit_halftrack",
+      "group": "units",
+      "w": 56,
+      "h": 48,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "unit_halftrack_p0",
+          "path": "assets/units/unit_halftrack_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "unit_halftrack_p1",
+          "path": "assets/units/unit_halftrack_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "unit_halftrack_p2",
+          "path": "assets/units/unit_halftrack_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "unit_halftrack_p3",
+          "path": "assets/units/unit_halftrack_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "unit_halftrack_p4",
+          "path": "assets/units/unit_halftrack_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "unit_armoredcar",
+      "group": "units",
+      "w": 52,
+      "h": 44,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "unit_armoredcar_p0",
+          "path": "assets/units/unit_armoredcar_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "unit_armoredcar_p1",
+          "path": "assets/units/unit_armoredcar_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "unit_armoredcar_p2",
+          "path": "assets/units/unit_armoredcar_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "unit_armoredcar_p3",
+          "path": "assets/units/unit_armoredcar_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "unit_armoredcar_p4",
+          "path": "assets/units/unit_armoredcar_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "unit_motorcycle",
+      "group": "units",
+      "w": 48,
+      "h": 40,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "unit_motorcycle_p0",
+          "path": "assets/units/unit_motorcycle_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "unit_motorcycle_p1",
+          "path": "assets/units/unit_motorcycle_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "unit_motorcycle_p2",
+          "path": "assets/units/unit_motorcycle_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "unit_motorcycle_p3",
+          "path": "assets/units/unit_motorcycle_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "unit_motorcycle_p4",
+          "path": "assets/units/unit_motorcycle_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "unit_arttruck",
+      "group": "units",
+      "w": 60,
+      "h": 44,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "unit_arttruck_p0",
+          "path": "assets/units/unit_arttruck_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "unit_arttruck_p1",
+          "path": "assets/units/unit_arttruck_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "unit_arttruck_p2",
+          "path": "assets/units/unit_arttruck_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "unit_arttruck_p3",
+          "path": "assets/units/unit_arttruck_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "unit_arttruck_p4",
+          "path": "assets/units/unit_arttruck_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "unit_boss",
+      "group": "units",
+      "w": 88,
+      "h": 88,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "unit_boss_p0",
+          "path": "assets/units/unit_boss_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "unit_boss_p1",
+          "path": "assets/units/unit_boss_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "unit_boss_p2",
+          "path": "assets/units/unit_boss_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "unit_boss_p3",
+          "path": "assets/units/unit_boss_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "unit_boss_p4",
+          "path": "assets/units/unit_boss_p4.png"
+        }
+      ]
+    }
+  ],
+  "anims": [
+    {
+      "key": "fx_explosion",
+      "group": "fx",
+      "path": "assets/spritesheets/fx_explosion.png",
+      "frameWidth": 64,
+      "frameHeight": 64,
+      "frames": 7,
+      "fps": 18,
+      "repeat": 0
+    },
+    {
+      "key": "fx_explosion_big",
+      "group": "fx",
+      "path": "assets/spritesheets/fx_explosion_big.png",
+      "frameWidth": 96,
+      "frameHeight": 96,
+      "frames": 8,
+      "fps": 16,
+      "repeat": 0
+    },
+    {
+      "key": "fx_muzzle",
+      "group": "fx",
+      "path": "assets/spritesheets/fx_muzzle.png",
+      "frameWidth": 32,
+      "frameHeight": 32,
+      "frames": 4,
+      "fps": 30,
+      "repeat": 0
+    },
+    {
+      "key": "fx_smoke",
+      "group": "fx",
+      "path": "assets/spritesheets/fx_smoke.png",
+      "frameWidth": 48,
+      "frameHeight": 48,
+      "frames": 6,
+      "fps": 14,
+      "repeat": 0
+    },
+    {
+      "key": "fx_impact",
+      "group": "fx",
+      "path": "assets/spritesheets/fx_impact.png",
+      "frameWidth": 24,
+      "frameHeight": 24,
+      "frames": 4,
+      "fps": 24,
+      "repeat": 0
+    },
+    {
+      "key": "fx_flame",
+      "group": "fx",
+      "path": "assets/spritesheets/fx_flame.png",
+      "frameWidth": 44,
+      "frameHeight": 32,
+      "frames": 5,
+      "fps": 18,
+      "repeat": 0
+    },
+    {
+      "key": "fx_dust",
+      "group": "fx",
+      "path": "assets/spritesheets/fx_dust.png",
+      "frameWidth": 32,
+      "frameHeight": 32,
+      "frames": 5,
+      "fps": 14,
+      "repeat": 0
+    }
+  ],
+  "teamAnims": [
+    {
+      "key": "unit_infantry",
+      "group": "units",
+      "frameWidth": 48,
+      "frameHeight": 48,
+      "frames": 4,
+      "fps": 10,
+      "repeat": -1,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "unit_infantry_p0",
+          "path": "assets/spritesheets/unit_infantry_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "unit_infantry_p1",
+          "path": "assets/spritesheets/unit_infantry_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "unit_infantry_p2",
+          "path": "assets/spritesheets/unit_infantry_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "unit_infantry_p3",
+          "path": "assets/spritesheets/unit_infantry_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "unit_infantry_p4",
+          "path": "assets/spritesheets/unit_infantry_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "unit_officer",
+      "group": "units",
+      "frameWidth": 48,
+      "frameHeight": 48,
+      "frames": 4,
+      "fps": 10,
+      "repeat": -1,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "unit_officer_p0",
+          "path": "assets/spritesheets/unit_officer_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "unit_officer_p1",
+          "path": "assets/spritesheets/unit_officer_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "unit_officer_p2",
+          "path": "assets/spritesheets/unit_officer_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "unit_officer_p3",
+          "path": "assets/spritesheets/unit_officer_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "unit_officer_p4",
+          "path": "assets/spritesheets/unit_officer_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "unit_medic",
+      "group": "units",
+      "frameWidth": 48,
+      "frameHeight": 48,
+      "frames": 4,
+      "fps": 10,
+      "repeat": -1,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "unit_medic_p0",
+          "path": "assets/spritesheets/unit_medic_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "unit_medic_p1",
+          "path": "assets/spritesheets/unit_medic_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "unit_medic_p2",
+          "path": "assets/spritesheets/unit_medic_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "unit_medic_p3",
+          "path": "assets/spritesheets/unit_medic_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "unit_medic_p4",
+          "path": "assets/spritesheets/unit_medic_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "unit_engineer",
+      "group": "units",
+      "frameWidth": 48,
+      "frameHeight": 48,
+      "frames": 4,
+      "fps": 10,
+      "repeat": -1,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "unit_engineer_p0",
+          "path": "assets/spritesheets/unit_engineer_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "unit_engineer_p1",
+          "path": "assets/spritesheets/unit_engineer_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "unit_engineer_p2",
+          "path": "assets/spritesheets/unit_engineer_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "unit_engineer_p3",
+          "path": "assets/spritesheets/unit_engineer_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "unit_engineer_p4",
+          "path": "assets/spritesheets/unit_engineer_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "unit_scout",
+      "group": "units",
+      "frameWidth": 48,
+      "frameHeight": 48,
+      "frames": 4,
+      "fps": 10,
+      "repeat": -1,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "unit_scout_p0",
+          "path": "assets/spritesheets/unit_scout_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "unit_scout_p1",
+          "path": "assets/spritesheets/unit_scout_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "unit_scout_p2",
+          "path": "assets/spritesheets/unit_scout_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "unit_scout_p3",
+          "path": "assets/spritesheets/unit_scout_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "unit_scout_p4",
+          "path": "assets/spritesheets/unit_scout_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "unit_heavy",
+      "group": "units",
+      "frameWidth": 48,
+      "frameHeight": 48,
+      "frames": 4,
+      "fps": 10,
+      "repeat": -1,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "unit_heavy_p0",
+          "path": "assets/spritesheets/unit_heavy_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "unit_heavy_p1",
+          "path": "assets/spritesheets/unit_heavy_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "unit_heavy_p2",
+          "path": "assets/spritesheets/unit_heavy_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "unit_heavy_p3",
+          "path": "assets/spritesheets/unit_heavy_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "unit_heavy_p4",
+          "path": "assets/spritesheets/unit_heavy_p4.png"
+        }
+      ]
+    },
+    {
+      "key": "unit_grenadier",
+      "group": "units",
+      "frameWidth": 48,
+      "frameHeight": 48,
+      "frames": 4,
+      "fps": 10,
+      "repeat": -1,
+      "variants": [
+        {
+          "team": "p0",
+          "key": "unit_grenadier_p0",
+          "path": "assets/spritesheets/unit_grenadier_p0.png"
+        },
+        {
+          "team": "p1",
+          "key": "unit_grenadier_p1",
+          "path": "assets/spritesheets/unit_grenadier_p1.png"
+        },
+        {
+          "team": "p2",
+          "key": "unit_grenadier_p2",
+          "path": "assets/spritesheets/unit_grenadier_p2.png"
+        },
+        {
+          "team": "p3",
+          "key": "unit_grenadier_p3",
+          "path": "assets/spritesheets/unit_grenadier_p3.png"
+        },
+        {
+          "team": "p4",
+          "key": "unit_grenadier_p4",
+          "path": "assets/spritesheets/unit_grenadier_p4.png"
+        }
+      ]
+    }
+  ]
+}

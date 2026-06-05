@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Warzone Sprite Forge — regenerate</title>
+<style>
+  body{margin:0;background:#121319;color:#e9e6da;font:14px/1.6 system-ui,sans-serif;padding:28px;}
+  h1{font-size:18px;letter-spacing:.12em;} h1 b{color:#ffcf3f;}
+  code{background:#0004;padding:1px 6px;border-radius:5px;color:#ffcf3f;}
+  button{background:#3fae5e;border:0;color:#fff;font:600 14px monospace;padding:10px 18px;border-radius:8px;cursor:pointer;}
+  button:disabled{background:#444;}
+  #log{margin-top:16px;font-family:monospace;font-size:12px;color:#8a90a0;white-space:pre-wrap;}
+  .row{display:flex;gap:12px;align-items:center;margin-top:14px;}
+</style>
+</head>
+<body>
+  <h1>WAR<b>ZONE</b> · SPRITE FORGE</h1>
+  <p>Re-bakes every sprite from <code>tools/forge/*.js</code> into a zip that
+     mirrors <code>public/assets/</code>. Edit <code>SF.TEAMS</code> in
+     <code>00-core.js</code> first to recolor the army, then regenerate and
+     drop the zip contents back into <code>public/assets/</code>.</p>
+  <div class="row">
+    <button id="go">Generate &amp; download zip</button>
+    <span id="status"></span>
+  </div>
+  <div id="log"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+  <!-- forge modules populate window.SF in order -->
+  <script src="00-core.js"></script>
+  <script src="10-towers.js"></script>
+  <script src="15-bases.js"></script>
+  <script src="20-enemies.js"></script>
+  <script src="30-fx.js"></script>
+  <script src="40-tiles.js"></script>
+  <script src="50-ui-icons.js"></script>
+  <script>
+  const SF = window.SF, log = m => document.getElementById('log').textContent += m + '\n';
+  const fpsMap = { fx_explosion:18, fx_explosion_big:16, fx_muzzle:30, fx_smoke:14, fx_impact:24, fx_flame:18, fx_dust:14 };
+  const cv = (w,h) => { const c=document.createElement('canvas'); c.width=w; c.height=h; return c; };
+  const png = c => new Promise(r => c.toBlob(r, 'image/png'));
+
+  async function run() {
+    document.getElementById('go').disabled = true;
+    const zip = new JSZip(), root = zip.folder('assets');
+
+    // statics
+    for (const k in SF.sprites){ const s=SF.sprites[k]; const c=cv(s.w,s.h); s.draw(c.getContext('2d'),s.w,s.h,SF.h);
+      root.folder(SF.groups[k]).file(k+'.png', await png(c)); }
+    log('statics: '+Object.keys(SF.sprites).length);
+
+    // team statics
+    for (const tid of SF.TEAM_ORDER){ const T=SF.TEAMS[tid];
+      for (const k in SF.teamSprites){ const s=SF.teamSprites[k]; const c=cv(s.w,s.h); s.draw(c.getContext('2d'),s.w,s.h,SF.h,T);
+        root.folder(SF.groups[k]).file(k+'_'+tid+'.png', await png(c)); } }
+    log('team statics: '+Object.keys(SF.teamSprites).length+' ×'+SF.TEAM_ORDER.length);
+
+    // anim sheets (frames laid horizontally)
+    const sheet = async (name, s, draw) => {
+      const c=cv(s.w*s.frames, s.h), x=c.getContext('2d');
+      for(let i=0;i<s.frames;i++){ x.save(); x.translate(i*s.w,0); draw(x,i); x.restore(); }
+      root.folder('spritesheets').file(name+'.png', await png(c));
+    };
+    for(const k in SF.anims){ const s=SF.anims[k]; await sheet(k, s, (x,i)=>s.draw(x,i,s.frames,s.w,s.h,SF.h)); }
+    for(const tid of SF.TEAM_ORDER){ const T=SF.TEAMS[tid];
+      for(const k in SF.teamAnims){ const s=SF.teamAnims[k]; await sheet(k+'_'+tid, s, (x,i)=>s.draw(x,i,s.frames,s.w,s.h,SF.h,T)); } }
+    log('anim sheets done');
+
+    // manifest
+    const folder = g => g, m = {
+      meta:{ project:'warzone', tile:48, generated:new Date().toISOString().slice(0,10) },
+      teams: SF.TEAM_ORDER.map(id=>({id,...SF.TEAMS[id]})), statics:[], teamStatics:[], anims:[], teamAnims:[],
+    };
+    for(const k in SF.sprites){ const s=SF.sprites[k]; m.statics.push({key:k,group:SF.groups[k],path:`assets/${folder(SF.groups[k])}/${k}.png`,w:s.w,h:s.h}); }
+    for(const k in SF.teamSprites){ const s=SF.teamSprites[k]; m.teamStatics.push({key:k,group:SF.groups[k],w:s.w,h:s.h,variants:SF.TEAM_ORDER.map(t=>({team:t,key:`${k}_${t}`,path:`assets/${folder(SF.groups[k])}/${k}_${t}.png`}))}); }
+    for(const k in SF.anims){ const s=SF.anims[k]; m.anims.push({key:k,group:SF.groups[k],path:`assets/spritesheets/${k}.png`,frameWidth:s.w,frameHeight:s.h,frames:s.frames,fps:fpsMap[k]||16,repeat:0}); }
+    for(const k in SF.teamAnims){ const s=SF.teamAnims[k]; m.teamAnims.push({key:k,group:SF.groups[k],frameWidth:s.w,frameHeight:s.h,frames:s.frames,fps:10,repeat:-1,variants:SF.TEAM_ORDER.map(t=>({team:t,key:`${k}_${t}`,path:`assets/spritesheets/${k}_${t}.png`}))}); }
+    root.file('manifest.json', JSON.stringify(m, null, 2));
+
+    document.getElementById('status').textContent = 'zipping…';
+    const blob = await zip.generateAsync({ type:'blob' });
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'warzone-assets.zip'; a.click();
+    document.getElementById('status').textContent = 'done ✓ — unzip into public/';
+    document.getElementById('go').disabled = false;
+  }
+  document.getElementById('go').onclick = run;
+  </script>
+</body>
+</html>
