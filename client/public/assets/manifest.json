@@ -2,7 +2,7 @@
   "meta": {
     "project": "warzone",
     "tile": 48,
-    "generated": "2026-06-05"
+    "generated": "2026-06-06"
   },
   "teams": [
     {
@@ -64,6 +64,41 @@
       "h": 18
     },
     {
+      "key": "proj_cannon_shell",
+      "group": "fx",
+      "path": "assets/fx/proj_cannon_shell.png",
+      "w": 20,
+      "h": 14
+    },
+    {
+      "key": "proj_at_slug",
+      "group": "fx",
+      "path": "assets/fx/proj_at_slug.png",
+      "w": 28,
+      "h": 10
+    },
+    {
+      "key": "proj_flak_burst",
+      "group": "fx",
+      "path": "assets/fx/proj_flak_burst.png",
+      "w": 18,
+      "h": 18
+    },
+    {
+      "key": "proj_sniper_round",
+      "group": "fx",
+      "path": "assets/fx/proj_sniper_round.png",
+      "w": 24,
+      "h": 8
+    },
+    {
+      "key": "proj_howitzer_shell",
+      "group": "fx",
+      "path": "assets/fx/proj_howitzer_shell.png",
+      "w": 22,
+      "h": 18
+    },
+    {
       "key": "proj_mortar",
       "group": "fx",
       "path": "assets/fx/proj_mortar.png",
@@ -76,6 +111,13 @@
       "path": "assets/fx/proj_rocket.png",
       "w": 26,
       "h": 14
+    },
+    {
+      "key": "proj_bazooka_rocket",
+      "group": "fx",
+      "path": "assets/fx/proj_bazooka_rocket.png",
+      "w": 24,
+      "h": 12
     },
     {
       "key": "proj_flame",
@@ -2091,6 +2133,68 @@
           "path": "assets/spritesheets/unit_grenadier_p4.png"
         }
       ]
+    }
+  ],
+  "audio": [
+    {
+      "key": "sfx_shot_rifle",
+      "path": "assets/sounds/sfx_shot_rifle.wav"
+    },
+    {
+      "key": "sfx_shot_mg",
+      "path": "assets/sounds/sfx_shot_mg.wav"
+    },
+    {
+      "key": "sfx_shot_sniper",
+      "path": "assets/sounds/sfx_shot_sniper.wav"
+    },
+    {
+      "key": "sfx_shot_cannon",
+      "path": "assets/sounds/sfx_shot_cannon.wav"
+    },
+    {
+      "key": "sfx_shot_at",
+      "path": "assets/sounds/sfx_shot_at.wav"
+    },
+    {
+      "key": "sfx_shot_mortar",
+      "path": "assets/sounds/sfx_shot_mortar.wav"
+    },
+    {
+      "key": "sfx_shot_howitzer",
+      "path": "assets/sounds/sfx_shot_howitzer.wav"
+    },
+    {
+      "key": "sfx_shot_flak",
+      "path": "assets/sounds/sfx_shot_flak.wav"
+    },
+    {
+      "key": "sfx_shot_flame",
+      "path": "assets/sounds/sfx_shot_flame.wav"
+    },
+    {
+      "key": "sfx_shot_rocket",
+      "path": "assets/sounds/sfx_shot_rocket.wav"
+    },
+    {
+      "key": "sfx_shot_bazooka",
+      "path": "assets/sounds/sfx_shot_bazooka.wav"
+    },
+    {
+      "key": "sfx_impact_light",
+      "path": "assets/sounds/sfx_impact_light.wav"
+    },
+    {
+      "key": "sfx_impact_heavy",
+      "path": "assets/sounds/sfx_impact_heavy.wav"
+    },
+    {
+      "key": "sfx_explosion",
+      "path": "assets/sounds/sfx_explosion.wav"
+    },
+    {
+      "key": "sfx_explosion_big",
+      "path": "assets/sounds/sfx_explosion_big.wav"
     }
   ]
 }
