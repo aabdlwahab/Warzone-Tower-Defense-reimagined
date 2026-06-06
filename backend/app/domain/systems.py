@@ -526,6 +526,7 @@ class CombatSystem:
                 {
                     "type": "shot",
                     "tower_id": tower.id,
+                    "enemy_id": target.id,
                     "kind": tower.kind,
                     "x": center.x,
                     "y": center.y,

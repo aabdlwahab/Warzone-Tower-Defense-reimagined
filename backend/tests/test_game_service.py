@@ -132,7 +132,7 @@ class GameServiceTest(unittest.TestCase):
             self.game.tick(0.25)
 
         snapshot = self.game.snapshot()
-        self.assertGreaterEqual(snapshot["players"][0]["money"], before - 85)
+        self.assertGreaterEqual(snapshot["players"][0]["money"], before - 95)
         self.assertLess(snapshot["players"][0]["money"], before)
         self.assertEqual(len(snapshot["enemies"]), 3)
         self.assertTrue(all(enemy["kind"] == "motorcycle" for enemy in snapshot["enemies"]))
@@ -245,6 +245,20 @@ class GameServiceTest(unittest.TestCase):
         self.assertAlmostEqual(events[-1]["damage"], 10.8)
         self.assertAlmostEqual(events[-1]["range"], 3.4375)
 
+    def test_obstacle_costs_25_and_cannot_be_upgraded(self) -> None:
+        player = self.game.join("Ahmed")
+        before = self.game.snapshot()["players"][0]["money"]
+
+        tower = self.game.place(player.id, "obstacle", 10, 7)
+        snapshot = self.game.snapshot()
+
+        self.assertEqual(tower.kind, "obstacle")
+        self.assertEqual(snapshot["players"][0]["money"], before - 25)
+        self.assertEqual(snapshot["towers"][0]["kind"], "obstacle")
+
+        with self.assertRaises(ValidationError):
+            self.game.upgrade(player.id, tower.id)
+
     def test_join_issues_resume_token(self) -> None:
         player = self.game.join("Ahmed")
 
@@ -299,12 +313,16 @@ class GameServiceTest(unittest.TestCase):
         self.game.ready(attacker.id)
         self.game.dispatch(attacker.id, "infantry", "p1")
         kinds: set[str] = set()
+        shots: list[dict] = []
 
         for _ in range(200):
             self.game.tick(0.1)
-            kinds.update(event["type"] for event in self.game.drain_events())
+            events = self.game.drain_events()
+            kinds.update(event["type"] for event in events)
+            shots.extend(event for event in events if event["type"] == "shot")
 
         self.assertIn("shot", kinds)
+        self.assertTrue(all(shot.get("enemy_id") for shot in shots))
         self.assertIn("kill", kinds)
 
 

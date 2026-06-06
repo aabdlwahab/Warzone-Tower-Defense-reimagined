@@ -67,7 +67,7 @@ class DesignerMapRequest(BaseModel):
     mode: Literal["single", "pvp"] = "single"
     players: int = Field(ge=1, le=4)
     cols: int = Field(default=40, ge=16, le=64)
-    rows: int = Field(default=22, ge=12, le=36)
+    rows: int = Field(default=20, ge=12, le=36)
     tile: int = Field(default=48, ge=24, le=96)
     bases: list[MapBase] = Field(min_length=1, max_length=4)
     spawns: list[MapSpawn] = Field(min_length=1, max_length=8)

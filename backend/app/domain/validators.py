@@ -136,6 +136,9 @@ class UpgradeValidator:
         if tower.owner_id != player.id:
             raise ValidationError("Only the owner can upgrade this tower")
 
+        if not definition.upgradeable:
+            raise ValidationError("Tower cannot be upgraded")
+
         if tower.level >= MAX_TOWER_LEVEL:
             raise ValidationError("Tower is already max level")
 

@@ -15,7 +15,7 @@ def _map_data(name: str = "Custom Test") -> dict:
         "mode": "single",
         "players": 1,
         "cols": 40,
-        "rows": 22,
+        "rows": 20,
         "tile": 48,
         "bases": [{"team": "p1", "x": 37, "y": 11}],
         "spawns": [{"x": 0, "y": 11, "target": "p1", "lane": 0}],
@@ -36,7 +36,7 @@ class MapFileServiceTest(unittest.TestCase):
 
             self.assertEqual(saved["id"], "custom_custom_test")
             self.assertEqual(saved["width"], 1920)
-            self.assertEqual(saved["height"], 1056)
+            self.assertEqual(saved["height"], 960)
             self.assertIn("buildableCount", saved)
             self.assertTrue((Path(directory) / "custom_custom_test.json").exists())
             self.assertIn("custom_custom_test", service.list())

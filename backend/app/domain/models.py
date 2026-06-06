@@ -122,6 +122,7 @@ class TowerDefinition:
     slow: float = 0.0
     slow_seconds: float = 0.0
     income: int = 0
+    upgradeable: bool = True
 
     def get_damage(self, level: int) -> float:
         return self.damage * (1.0 + 0.35 * (level - 1))

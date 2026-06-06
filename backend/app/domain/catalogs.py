@@ -53,36 +53,37 @@ def _radius(pixels: float) -> float:
 
 # Roster shared with the client's config.js (pixel-space units → tiles/second).
 DEFAULT_TOWERS = {
+    "obstacle": TowerDefinition("obstacle", cost=25, range=0.0, damage=0, fire_rate=0.0, upgradeable=False),
     "rifle": TowerDefinition("rifle", cost=50, range=_range(150), damage=8, fire_rate=_rate(700)),
     "mg": TowerDefinition("mg", cost=100, range=_range(165), damage=5, fire_rate=_rate(160)),
     "mortar": TowerDefinition("mortar", cost=140, range=_range(230), damage=26, fire_rate=_rate(1500), splash_radius=_range(56)),
     "cannon": TowerDefinition("cannon", cost=160, range=_range(210), damage=34, fire_rate=_rate(1100)),
     "at": TowerDefinition("at", cost=200, range=_range(250), damage=70, fire_rate=_rate(1400)),
     "flak": TowerDefinition("flak", cost=180, range=_range(190), damage=12, fire_rate=_rate(280), splash_radius=_range(24)),
-    "howitzer": TowerDefinition("howitzer", cost=260, range=_range(300), damage=55, fire_rate=_rate(2200), splash_radius=_range(70)),
-    "sniper": TowerDefinition("sniper", cost=150, range=_range(360), damage=90, fire_rate=_rate(1900)),
-    "flame": TowerDefinition("flame", cost=170, range=_range(110), damage=4, fire_rate=_rate(90), splash_radius=_range(40), slow=0.25, slow_seconds=0.6),
-    "rocket": TowerDefinition("rocket", cost=240, range=_range(260), damage=30, fire_rate=_rate(1300), splash_radius=_range(60)),
+    "howitzer": TowerDefinition("howitzer", cost=260, range=_range(300), damage=70, fire_rate=_rate(2200), splash_radius=_range(70)),
+    "sniper": TowerDefinition("sniper", cost=210, range=_range(360), damage=90, fire_rate=_rate(1900)),
+    "flame": TowerDefinition("flame", cost=220, range=_range(110), damage=4, fire_rate=_rate(90), splash_radius=_range(40), slow=0.25, slow_seconds=0.6),
+    "rocket": TowerDefinition("rocket", cost=240, range=_range(260), damage=38, fire_rate=_rate(1300), splash_radius=_range(60)),
     "bazooka": TowerDefinition("bazooka", cost=190, range=_range(220), damage=60, fire_rate=_rate(1600), splash_radius=_range(30)),
     "command": TowerDefinition("command", cost=300, range=0.0, damage=0, fire_rate=0.0, income=18),
 }
 
 DEFAULT_ENEMIES = {
     "infantry": EnemyDefinition("infantry", health=40, speed=_speed(70), reward=12, cost=35, radius=_radius(18), damage=1, kind="inf"),
-    "officer": EnemyDefinition("officer", health=60, speed=_speed(75), reward=20, cost=55, radius=_radius(18), damage=2, kind="inf"),
+    "officer": EnemyDefinition("officer", health=60, speed=_speed(75), reward=20, cost=65, radius=_radius(18), damage=2, kind="inf"),
     "medic": EnemyDefinition("medic", health=55, speed=_speed(72), reward=18, cost=50, radius=_radius(18), damage=1, kind="inf"),
     "engineer": EnemyDefinition("engineer", health=70, speed=_speed(65), reward=20, cost=60, radius=_radius(18), damage=1, kind="inf"),
     "scout": EnemyDefinition("scout", health=30, speed=_speed(130), reward=14, cost=45, radius=_radius(16), damage=1, kind="inf"),
-    "heavy": EnemyDefinition("heavy", health=120, speed=_speed(55), reward=28, cost=90, radius=_radius(20), damage=3, kind="inf"),
+    "heavy": EnemyDefinition("heavy", health=120, speed=_speed(55), reward=28, cost=105, radius=_radius(20), damage=3, kind="inf"),
     "grenadier": EnemyDefinition("grenadier", health=80, speed=_speed(68), reward=24, cost=75, radius=_radius(18), damage=2, kind="inf"),
-    "motorcycle": EnemyDefinition("motorcycle", health=70, speed=_speed(150), reward=24, cost=85, radius=_radius(20), damage=2, kind="veh"),
-    "armoredcar": EnemyDefinition("armoredcar", health=160, speed=_speed(95), reward=36, cost=130, radius=_radius(24), damage=3, kind="veh"),
-    "halftrack": EnemyDefinition("halftrack", health=220, speed=_speed(80), reward=44, cost=165, radius=_radius(26), damage=4, kind="veh"),
-    "lighttank": EnemyDefinition("lighttank", health=300, speed=_speed(70), reward=52, cost=210, radius=_radius(24), damage=5, kind="veh"),
-    "arttruck": EnemyDefinition("arttruck", health=260, speed=_speed(75), reward=48, cost=190, radius=_radius(28), damage=4, kind="veh"),
-    "mediumtank": EnemyDefinition("mediumtank", health=520, speed=_speed(58), reward=80, cost=320, radius=_radius(30), damage=8, kind="veh"),
-    "heavytank": EnemyDefinition("heavytank", health=900, speed=_speed(46), reward=130, cost=520, radius=_radius(32), damage=12, kind="veh"),
-    "boss": EnemyDefinition("boss", health=5000, speed=_speed(38), reward=800, cost=1800, radius=_radius(44), damage=50, kind="veh", boss=True),
+    "motorcycle": EnemyDefinition("motorcycle", health=70, speed=_speed(150), reward=24, cost=95, radius=_radius(20), damage=2, kind="veh"),
+    "armoredcar": EnemyDefinition("armoredcar", health=160, speed=_speed(95), reward=36, cost=145, radius=_radius(24), damage=3, kind="veh"),
+    "halftrack": EnemyDefinition("halftrack", health=220, speed=_speed(80), reward=44, cost=185, radius=_radius(26), damage=4, kind="veh"),
+    "lighttank": EnemyDefinition("lighttank", health=300, speed=_speed(70), reward=52, cost=240, radius=_radius(24), damage=5, kind="veh"),
+    "arttruck": EnemyDefinition("arttruck", health=260, speed=_speed(75), reward=48, cost=230, radius=_radius(28), damage=4, kind="veh"),
+    "mediumtank": EnemyDefinition("mediumtank", health=520, speed=_speed(58), reward=80, cost=390, radius=_radius(30), damage=8, kind="veh"),
+    "heavytank": EnemyDefinition("heavytank", health=900, speed=_speed(46), reward=130, cost=680, radius=_radius(32), damage=12, kind="veh"),
+    "boss": EnemyDefinition("boss", health=5000, speed=_speed(38), reward=800, cost=2200, radius=_radius(44), damage=50, kind="veh", boss=True),
 }
 
 
