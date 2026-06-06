@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "forge": "node tools/forge/generate.mjs"
+    "forge": "node tools/forge/generate.mjs",
+    "sounds": "node tools/forge/generate-sounds.mjs"
   },
   "dependencies": {
     "phaser": "^3.80.1"

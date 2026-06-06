@@ -151,7 +151,7 @@ looping, rotating and recoloring every animation.**
 ---
 
 ## Maps
-Four 1920×1080 maps ship in `public/maps/` (2 single-player, 2 symmetric PvP)
+1920×960 maps ship in `public/maps/` (single-player and symmetric PvP)
 with preview images in `map_previews/`. Loader: `src/maps/MapLoader.js`.
 **Full details, JSON schema, and wiring instructions are in `MAPS.md`.**
 

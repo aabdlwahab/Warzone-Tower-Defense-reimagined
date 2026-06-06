@@ -1,7 +1,8 @@
 # Maps
 
-Four ready-to-load maps at **1920×1080** on the 48px grid (40 cols × 22 rows;
-grass tiles to the full 1080 height). Data is in `public/maps/<id>.json`,
+Ready-to-load maps are **1920×960** on the 48px grid (40 cols × 20 rows),
+leaving room for the top bar and bottom HUD inside a 1920×1080 viewport.
+Data is in `public/maps/<id>.json`,
 preview images in `public/maps/previews/<id>.png`.
 
 | id | Name | Mode | Players | Symmetry | Notes |
@@ -35,7 +36,7 @@ into the `blocked` list, so towers can't be placed on them.
 {
   "id": "twin_fronts", "name": "Twin Fronts", "mode": "pvp",
   "players": 2, "symmetry": "x",
-  "tile": 48, "cols": 40, "rows": 22, "width": 1920, "height": 1080,
+  "tile": 48, "cols": 40, "rows": 20, "width": 1920, "height": 960,
   "groundFill": "grass",
   "bases":  [ { "team": "p1", "x": 2,  "y": 10 }, { "team": "p2", "x": 37, "y": 10 } ],
   "spawns": [ { "x": 20, "y": 10, "lane": 0, "target": "p1" }, ... ],   // grid cells
