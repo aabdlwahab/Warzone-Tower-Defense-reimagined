@@ -24,7 +24,7 @@ Warzone Tower Defense is a WWII-themed, top-down multiplayer tower defense game.
 |-----------|-------|
 | Engine | **Phaser 3** (WebGL/Canvas) |
 | Tile size | **48 × 48 px** |
-| Grid | 40 × 22 tiles (maps vary) |
+| Grid | 40 × 20 tiles (maps vary) |
 | Coordinate system | Top-down, y-axis down, north = up |
 | Sprite loading | Phaser `load.image` for static PNGs, `load.spritesheet` for animations |
 | Animation sheets | Horizontal strip, left-to-right frames, no padding between frames |
