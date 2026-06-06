@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from enum import Enum
 from math import hypot
 
@@ -12,6 +12,7 @@ class GameStatus(str, Enum):
     RUNNING = "running"
     VICTORY = "victory"
     DEFEAT = "defeat"
+    FINISHED = "finished"
 
 
 @dataclass(frozen=True)
@@ -30,54 +31,84 @@ class Point:
 
 
 @dataclass(frozen=True)
+class Base:
+    team: str
+    tile: Tile
+
+
+@dataclass(frozen=True)
+class Spawn:
+    tile: Tile
+    target: str
+    team: str | None = None
+
+
+@dataclass(frozen=True)
+class Deco:
+    key: str
+    tile: Tile
+
+
+# 4-connected grid movement.
+NEIGHBOR_OFFSETS = ((1, 0), (-1, 0), (0, 1), (0, -1))
+
+
+@dataclass(frozen=True)
 class MapDefinition:
     id: str
-    width: int
-    height: int
-    path: tuple[Point, ...]
+    name: str
+    mode: str
+    players: int
+    cols: int
+    rows: int
+    tile: int
+    bases: tuple[Base, ...]
+    spawns: tuple[Spawn, ...]
+    water: frozenset[Tile]
+    deco: tuple[Deco, ...]
+    static_blocked: frozenset[Tile]
     buildable: frozenset[Tile]
+
+    def in_bounds(self, tile: Tile) -> bool:
+        return 0 <= tile.x < self.cols and 0 <= tile.y < self.rows
 
     def can_build(self, tile: Tile) -> bool:
         return tile in self.buildable
 
-    def get_length(self) -> float:
-        length = 0.0
+    def base_tile(self, team: str) -> Tile | None:
+        for base in self.bases:
+            if base.team == team:
+                return base.tile
 
-        for index in range(len(self.path) - 1):
-            length += self.path[index].get_distance(self.path[index + 1])
+        return None
 
-        return length
+    def center(self, tile: Tile) -> Point:
+        return Point(tile.x + 0.5, tile.y + 0.5)
 
-    def get_position(self, distance: float) -> Point:
-        remaining = max(0.0, distance)
+    def walkable(self, tile: Tile, target: str, occupied: frozenset[Tile]) -> bool:
+        if not self.in_bounds(tile):
+            return False
 
-        for index in range(len(self.path) - 1):
-            start = self.path[index]
-            end = self.path[index + 1]
-            length = start.get_distance(end)
+        if tile in occupied:
+            return False
 
-            if remaining <= length:
-                return self._get_position(start, end, remaining, length)
+        if tile not in self.static_blocked:
+            return True
 
-            remaining -= length
+        # The target's own base cell is the goal, so it must be enterable even
+        # though every base tile is otherwise blocked.
+        return tile == self.base_tile(target)
 
-        return self.path[-1]
+    def neighbors(self, tile: Tile, target: str, occupied: frozenset[Tile]) -> list[Tile]:
+        result = []
 
-    def _get_position(
-        self,
-        start: Point,
-        end: Point,
-        distance: float,
-        length: float,
-    ) -> Point:
-        if length == 0:
-            return start
+        for dx, dy in NEIGHBOR_OFFSETS:
+            candidate = Tile(tile.x + dx, tile.y + dy)
 
-        ratio = distance / length
-        return Point(
-            x=start.x + (end.x - start.x) * ratio,
-            y=start.y + (end.y - start.y) * ratio,
-        )
+            if self.walkable(candidate, target, occupied):
+                result.append(candidate)
+
+        return result
 
 
 @dataclass(frozen=True)
@@ -90,12 +121,16 @@ class TowerDefinition:
     splash_radius: float = 0.0
     slow: float = 0.0
     slow_seconds: float = 0.0
+    income: int = 0
 
     def get_damage(self, level: int) -> float:
         return self.damage * (1.0 + 0.35 * (level - 1))
 
     def get_range(self, level: int) -> float:
         return self.range * (1.0 + 0.10 * (level - 1))
+
+    def get_dps(self, level: int) -> float:
+        return self.get_damage(level) * self.fire_rate
 
     def get_upgrade_cost(self, level: int) -> int:
         return int(self.cost * (0.75 + 0.35 * level))
@@ -107,7 +142,12 @@ class EnemyDefinition:
     health: float
     speed: float
     reward: int
+    cost: int
+    radius: float = 0.45
+    damage: int = 1
     armor: float = 0.0
+    kind: str = "veh"
+    boss: bool = False
 
 
 @dataclass(frozen=True)
@@ -135,6 +175,13 @@ class PlaceCommand:
 
 
 @dataclass(frozen=True)
+class DispatchCommand:
+    player_id: str
+    unit_type: str
+    target_team: str | None = None
+
+
+@dataclass(frozen=True)
 class UpgradeCommand:
     player_id: str
     tower_id: str
@@ -145,15 +192,18 @@ class Player:
     id: str
     name: str
     money: int
+    team: str = ""
     ready: bool = False
     token: str = ""
     connected: bool = True
+    alive: bool = True
 
 
 @dataclass
 class Tower:
     id: str
     owner_id: str
+    team: str
     kind: str
     tile: Tile
     level: int = 1
@@ -176,10 +226,15 @@ class Tower:
 class Enemy:
     id: str
     kind: str
+    target: str
     health: float
-    distance: float = 0.0
+    position: Point
+    path: list[Tile] = field(default_factory=list)
+    heading: float = 0.0
     speed_scale: float = 1.0
     slow_seconds: float = 0.0
+    owner_id: str | None = None
+    base_damage: float = 1.0
 
     def damage(self, amount: float) -> None:
         self.health -= amount
@@ -190,14 +245,14 @@ class Enemy:
 
         return self.speed_scale
 
-    def has_finished(self, length: float) -> bool:
-        return self.distance >= length
+    def remaining(self) -> int:
+        return len(self.path)
+
+    def has_arrived(self) -> bool:
+        return not self.path
 
     def is_dead(self) -> bool:
         return self.health <= 0
-
-    def move(self, amount: float) -> None:
-        self.distance += amount
 
     def slow(self, amount: float, seconds: float) -> None:
         self.speed_scale = min(self.speed_scale, max(0.1, 1.0 - amount))
@@ -208,4 +263,3 @@ class Enemy:
 
         if self.slow_seconds == 0:
             self.speed_scale = 1.0
-
