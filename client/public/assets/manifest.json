@@ -2,8 +2,7 @@
   "meta": {
     "project": "warzone",
     "tile": 48,
-    "generated": "2026-06-05",
-    "note": "Flat-vector WWII top-down asset set. Team-tinted defenses/units carry _p0(neutral)/_p1..p4 suffixes."
+    "generated": "2026-06-05"
   },
   "teams": [
     {

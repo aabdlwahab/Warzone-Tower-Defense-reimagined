@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Warzone Map Forge — build &amp; preview</title>
+<style>
+  body{margin:0;background:#121319;color:#e9e6da;font:14px/1.6 system-ui,sans-serif;padding:24px;}
+  h1{font-size:18px;letter-spacing:.12em;} h1 b{color:#ffcf3f;}
+  code{background:#0004;padding:1px 6px;border-radius:5px;color:#ffcf3f;}
+  button{background:#3fae5e;border:0;color:#fff;font:600 13px monospace;padding:9px 16px;border-radius:8px;cursor:pointer;margin-right:8px;}
+  button.alt{background:#2e74d6;}
+  canvas{max-width:100%;border:1px solid #33384a;border-radius:8px;margin-top:14px;display:block;}
+  #tabs button{background:#23262f;} #tabs button.on{background:#3fae5e;}
+  #log{margin-top:10px;font-family:monospace;font-size:12px;color:#8a90a0;}
+  .bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px;}
+</style>
+</head>
+<body>
+  <h1>WAR<b>ZONE</b> · MAP FORGE</h1>
+  <p>Builds maps from <code>maps-src.js</code> and renders 1920×1080 previews
+     using the sprites in <code>../../public/assets/</code>. Edit
+     <code>maps-src.js</code> to author/adjust maps, then preview here and
+     <b>Download zip</b> (JSON + PNG) into <code>public/maps/</code>.</p>
+  <div id="tabs" class="bar"></div>
+  <div class="bar">
+    <button id="dl" class="alt">Download all (zip)</button>
+    <span id="log"></span>
+  </div>
+  <canvas id="view" width="1920" height="1080"></canvas>
+
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+  <script src="maps-src.js"></script>
+  <script>
+  const M = globalThis.WZMAPS, TILE = M.TILE, W = M.W, H = M.H;
+  const ASSET = '../../public/assets/';
+  const view = document.getElementById('view'), vx = view.getContext('2d');
+  const cache = {};
+  const log = s => document.getElementById('log').textContent = s;
+  const img = src => new Promise(r => { if (cache[src]) return r(cache[src]); const i = new Image(); i.onload = () => { cache[src] = i; r(i); }; i.src = src; });
+
+  async function renderTo(ctx, id) {
+    const m = M.build(id);
+    ctx.fillStyle = '#5fae3a'; ctx.fillRect(0, 0, W, H);
+    ctx.imageSmoothingEnabled = false;
+    const grass = await img(ASSET + 'tiles/tile_grass.png'), grass2 = await img(ASSET + 'tiles/tile_grass2.png');
+    for (let gy = 0; gy * TILE < H; gy++) for (let gx = 0; gx < m.cols; gx++)
+      ctx.drawImage(((gx * 7 + gy * 3) % 5 === 0) ? grass2 : grass, gx * TILE, gy * TILE);
+    const water = await img(ASSET + 'tiles/tile_water.png');
+    for (const w of m.water) ctx.drawImage(water, w.x * TILE, w.y * TILE);
+    for (const p of m.pathTiles) ctx.drawImage(await img(ASSET + 'tiles/path_' + p.key + '.png'), p.x * TILE, p.y * TILE);
+    for (const d of m.deco) { const i = await img(ASSET + 'deco/deco_' + d.key + '.png'); ctx.drawImage(i, d.x * TILE + 24 - i.width / 2, d.y * TILE + 24 - i.height / 2); }
+    for (const b of m.bases) { const i = await img(ASSET + 'bases/base_hq_' + b.team + '.png'); ctx.drawImage(i, b.x * TILE + 24 - i.width / 2, b.y * TILE + 24 - i.height / 2); }
+    for (const s of m.spawns) { const i = await img(ASSET + 'bases/base_flag_' + (s.target || 'p0') + '.png'); ctx.drawImage(i, s.x * TILE + 24 - i.width / 2, s.y * TILE + 24 - i.height / 2); }
+    return m;
+  }
+
+  async function preview(id) {
+    [...document.querySelectorAll('#tabs button')].forEach(b => b.classList.toggle('on', b.dataset.id === id));
+    const m = await renderTo(vx, id);
+    log(`${m.name} · ${m.mode}${m.players > 1 ? ' ' + m.players + 'p' : ''} · sym=${m.symmetry} · ${m.lanes.length} lane(s) · ${m.bases.length} base(s)`);
+  }
+
+  M.list.forEach((id, i) => {
+    const b = document.createElement('button'); b.textContent = M.SPECS[id].name; b.dataset.id = id;
+    b.onclick = () => preview(id); document.getElementById('tabs').appendChild(b);
+  });
+
+  const png = c => new Promise(r => c.toBlob(r, 'image/png'));
+  document.getElementById('dl').onclick = async () => {
+    log('rendering all…'); const zip = new JSZip();
+    const tmp = document.createElement('canvas'); tmp.width = W; tmp.height = H; const tc = tmp.getContext('2d');
+    for (const id of M.list) {
+      const m = await renderTo(tc, id);
+      zip.folder('maps').file(id + '.json', JSON.stringify(m));
+      zip.folder('maps/previews').file(id + '.png', await png(tmp));
+    }
+    const blob = await zip.generateAsync({ type: 'blob' });
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'warzone-maps.zip'; a.click();
+    log('done ✓ — unzip into public/');
+  };
+
+  preview(M.list[0]);
+  </script>
+</body>
+</html>
