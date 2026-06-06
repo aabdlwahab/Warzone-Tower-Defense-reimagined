@@ -9,6 +9,7 @@ from fastapi import WebSocket, WebSocketDisconnect
 
 from backend.app.api.schemas import (
     ClientMessage,
+    DispatchMessage,
     JoinMessage,
     MessageValidator,
     PingMessage,
@@ -125,6 +126,16 @@ class SocketHandler:
                     tower_type=message.tower_type,
                     x=message.x,
                     y=message.y,
+                )
+            )
+            return player_id
+
+        if isinstance(message, DispatchMessage):
+            await room.apply(
+                lambda game: game.dispatch(
+                    player_id=player_id,
+                    unit_type=message.unit_type,
+                    target_team=message.target_team,
                 )
             )
             return player_id

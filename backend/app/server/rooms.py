@@ -9,6 +9,7 @@ from typing import Any, Callable
 
 from fastapi import WebSocket
 
+from backend.app.domain.catalogs import DEFAULT_MAP_ID
 from backend.app.domain.errors import MissingError, ValidationError
 from backend.app.domain.services import GameFactory, GameService
 
@@ -254,11 +255,11 @@ class RoomService:
         self._store = store
         self._factory = factory
 
-    def create(self) -> Room:
+    def create(self, map_id: str = DEFAULT_MAP_ID) -> Room:
         room_id = self._create()
         room = Room(
             room_id=room_id,
-            game=self._factory.create(room_id),
+            game=self._factory.create(room_id, map_id=map_id),
             on_close=lambda: self._store.remove(room_id),
         )
         self._store.add(room)
